@@ -14,13 +14,13 @@ while True:
     if código == 1:
         gasolina += 1
         print("Gasolina computada!")
-    if código == 2:
+    elif código == 2:
         alcool += 1
         print("Álcool computado!")
-    if código == 3:
+    elif código == 3:
         diesel += 1
         print("Diesel computado!")
-    if código == 4:
+    elif código == 4:
         break
 print("-"*30)
 print("Muito obrigado!")

@@ -7,4 +7,3 @@ while cont <= n:
     if resto == 0:
         print(cont)
     cont += 1
-

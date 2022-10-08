@@ -11,5 +11,5 @@ while True:
     somatório += idade
     cont += 1
 media = somatório/cont
-print(f"A média de idade do grupo de {cont} pessoas é {media} anos.")
+print(f"A média de idade do grupo de {cont} pessoas é {media:.2f} anos.")
 
