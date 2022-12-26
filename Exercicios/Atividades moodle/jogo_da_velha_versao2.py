@@ -1,4 +1,37 @@
-# PROGRAMA PARA FAZER JOGO DA VELHA PARTE 01 (construindo o tabulheiro e definindo quem ganhou - sem usar funções)
+# PROGRAMA PARA FAZER JOGO DA VELHA PARTE 01 + PARTE 02
+# DEPOIS CONTINUAR
+
+def imprime_tabuleiro():
+    for linha in range(0, 3):
+        for coluna in range(0, 3):
+            print(f"[{matriz_jogo[linha][coluna]:^3}]", end="")
+        print()
+    print()
+
+def lin():
+    linha = 0
+    while linha not in {1, 2, 3}:
+        linha = int(input("Escolha a linha: "))
+    return linha
+
+def col():
+    coluna = 0
+    while coluna not in {1, 2, 3}:
+        coluna = int(input("Escolha a coluna: "))
+    return coluna
+
+def jogada(linha,coluna, jogador):
+    if matriz_jogo[linha - 1][coluna - 1] == " ":
+        if jogador == 1:
+            matriz_jogo[linha - 1][coluna - 1] = "X"
+            #cont += 1
+            #break
+        elif jogador == 2:
+            matriz_jogo[linha - 1][coluna - 1] = "O"
+            #cont += 1
+            #break
+
+
 
 matriz_jogo = [[" "] * 3, [" "] * 3, [" "] * 3]
 cont = 0
@@ -16,22 +49,10 @@ for linha in range(0, 3):
 while True:
     print("\nJogador X")
     while True:
-        linha = coluna = 0
-        while linha not in {1, 2, 3}:
-            linha = int(input("Escolha a linha: "))
-        while coluna not in {1, 2, 3}:
-            coluna = int(input("Escolha a coluna: "))
-        if matriz_jogo[linha - 1][coluna - 1] == " ":
-            matriz_jogo[linha - 1][coluna - 1] = "X"
-            cont += 1
-
-            break
-    for linha in range(0, 3):
-        for coluna in range(0, 3):
-            print(f"[{matriz_jogo[linha][coluna]:^3}]", end="")
-        print()
-    print()
-
+        linha = lin()
+        coluna = col()
+        jogada(linha, coluna, 1)
+    imprime_tabuleiro()
 
     for linha in range(0, 3):
         if matriz_jogo[linha][0] == "X" and matriz_jogo[linha][1] == "X" and matriz_jogo[linha][2] == "X":
@@ -58,25 +79,12 @@ while True:
         print("Deu velha")
         break
 
-
     print("Jogador O")
     while True:
-        linha = coluna = 0
-        while linha not in {1, 2, 3}:
-            linha = int(input("Escolha a linha: "))
-        while coluna not in {1, 2, 3}:
-            coluna = int(input("Escolha a coluna: "))
-        if matriz_jogo[linha - 1][coluna - 1] == " ":
-            matriz_jogo[linha - 1][coluna - 1] = "O"
-            cont += 1
-            linha = coluna = 0
-            break
-    for linha in range(0, 3):
-        for coluna in range(0, 3):
-            print(f"[{matriz_jogo[linha][coluna]:^3}]", end="")
-        print()
-    print()
-
+        linha = lin()
+        coluna = col()
+        jogada(linha, coluna, 2)
+    imprime_tabuleiro()
 
     for linha in range(0, 3):
         if matriz_jogo[linha][0] == "O" and matriz_jogo[linha][1] == "O" and matriz_jogo[linha][2] == "O":
